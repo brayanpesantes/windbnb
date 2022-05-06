@@ -25,7 +25,7 @@ function ListCard({ guestTotal, locationText }) {
   }, [guestTotal, locationText]);
 
   return (
-    <SimpleGrid columns={[2, null, 3]} spacing={"32px"}>
+    <SimpleGrid columns={[1, 3]} spacing={"32px"}>
       {stays.length === 0 ? (
         <Heading textAlign={"center"}>Ho Hay Data</Heading>
       ) : (
