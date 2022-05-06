@@ -60,6 +60,7 @@ function InputSearch({ setLocationText, setGuestTotal }) {
             fontSize={"14px"}
             fontWeight="400"
             lineHeight={"18px"}
+            flexDirection={["column", "row"]}
           >
             {textLocation}
           </Text>
@@ -92,7 +93,11 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                 rounded={18}
                 mt={"3rem"}
               >
-                <HStack spacing={0} flexGrow={1}>
+                <HStack
+                  spacing={0}
+                  flexGrow={1}
+                  flexDirection={["column", "row"]}
+                >
                   <Box
                     border={isActiveLocation ? "1px solid #333333" : ""}
                     filter={"drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1))"}
