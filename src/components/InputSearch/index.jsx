@@ -25,7 +25,7 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 function InputSearch({ setLocationText, setGuestTotal }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  const [isActiveLocation, setIsActiveLocation] = useState(false);
+  const [isActiveLocation, setIsActiveLocation] = useState(true);
   const [isActiveGuest, setIsActiveGuest] = useState(false);
   const [textLocation, setTextLocation] = useState("Helsinki, Finland");
   const [textGuest, setTextGuest] = useState(4);
@@ -91,11 +91,11 @@ function InputSearch({ setLocationText, setGuestTotal }) {
               <Box
                 shadow="0px 1px 6px rgba(0, 0, 0, 0.1)"
                 rounded={18}
-                mt={"3rem"}
+                mt={["1rem", "3rem"]}
               >
                 <HStack
                   spacing={0}
-                  flexGrow={1}
+                  // flexGrow={1}
                   flexDirection={["column", "row"]}
                 >
                   <Box
@@ -104,6 +104,7 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                     borderRadius={"16px"}
                     px={"16px"}
                     py={4}
+                    w="full"
                     flex={1}
                     onClick={() => {
                       setIsActiveLocation(true);
@@ -132,8 +133,10 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                     height={"full"}
                     orientation="vertical"
                     borderColor={"#F2F2F2"}
+                    display={["none", "block"]}
                   />
                   <Box
+                    w="full"
                     border={isActiveGuest ? "1px solid #333333" : ""}
                     filter={"drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1))"}
                     borderRadius={"16px"}
@@ -171,6 +174,7 @@ function InputSearch({ setLocationText, setGuestTotal }) {
 
                   <Flex justifyContent={"center"} alignItems="center" flex={1}>
                     <Button
+                      w="full"
                       leftIcon={<MdSearch />}
                       bgColor={"#EB5757"}
                       color={"#F2F2F2"}
@@ -178,6 +182,7 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                       lineHeight={"18px"}
                       fontWeight={700}
                       borderRadius={"16px"}
+                      display={["none", "block"]}
                       px={6}
                       _hover={{
                         bgColor: "#F2F2F2 50",
@@ -190,7 +195,7 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                 </HStack>
               </Box>
 
-              <SimpleGrid columns={3} mt={"40px"}>
+              <SimpleGrid columns={[1, 3]} mt={"40px"}>
                 <Box>
                   {isActiveLocation && (
                     <List spacing={"30px"} mb={"40px"} px={4}>
@@ -300,6 +305,24 @@ function InputSearch({ setLocationText, setGuestTotal }) {
                   )}
                 </Box>
               </SimpleGrid>
+              <Button
+                w="full"
+                leftIcon={<MdSearch />}
+                bgColor={"#EB5757"}
+                color={"#F2F2F2"}
+                fontSize={"14px"}
+                lineHeight={"18px"}
+                fontWeight={700}
+                borderRadius={"16px"}
+                display={["block", "none"]}
+                px={6}
+                _hover={{
+                  bgColor: "#F2F2F2 50",
+                }}
+                onClick={handleSearch}
+              >
+                Search
+              </Button>
             </Container>
           </DrawerBody>
         </DrawerContent>
