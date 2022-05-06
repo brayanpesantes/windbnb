@@ -6,9 +6,9 @@ function Header({ setLocationText, setGuestTotal }) {
     <Stack
       mt={"19.75px"}
       mb={"85px"}
-      direction={"row"}
+      direction={["column", "row"]}
       justifyContent="space-between"
-      alignItems={"center"}
+      alignItems={["start", "center"]}
     >
       <Image src={logoImage} h={"18.75px"} />
       <InputSearch
